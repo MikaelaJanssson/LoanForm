@@ -77,7 +77,7 @@ export default function LoanForm() {
     return (
       <div className="thank-you">
         <h2>Tack!</h2>
-        <p>Vi har fått din ansökan och kontaktar dig snart.</p>
+        <p>Vi har mottagit din ansökan och kontaktar dig snart.</p>
       </div>
     );
   }
