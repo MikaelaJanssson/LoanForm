@@ -86,7 +86,7 @@ export default function LoanForm() {
     <form className="loan-form" onSubmit={handleSubmit}>
       <div className="form-header">
         <Logo />
-        <h2>Låneansökan</h2>
+        <h2 className="loan-form-title">Låneansökan</h2>
       </div>
       <p>Steg {step} av 4</p>
 
