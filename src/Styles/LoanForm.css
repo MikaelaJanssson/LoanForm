@@ -7,9 +7,12 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  overflow-y: auto;
 }
 
-/* Formulärbox */
+/* ===========================
+  LoanForm formuläret + tack-sidan
+=========================== */
 .loan-form,
 .thank-you {
   background: white;
@@ -29,6 +32,9 @@ body {
   color: #0d47a1;
 }
 
+/* ===========================
+   Inputs 
+=========================== */
 label {
   display: flex;
   flex-direction: column;
@@ -67,14 +73,44 @@ textarea {
   min-height: 80px;
 }
 
-/* Felmeddelande */
+/* ===========================
+   Felmeddelanden
+=========================== */
 .error {
   color: red;
   font-size: 0.8rem;
   margin-top: 0.2rem;
 }
 
-/* Knappar */
+/* ===========================
+   StepTwoEmployment – Ja/Nej-radioknappar
+=========================== */
+fieldset {
+  border: none;
+  margin: 1em 0;
+  padding: 0;
+}
+
+fieldset legend {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1.5em;
+  align-items: center;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+/* ===========================
+   Buttons
+=========================== */
 .buttons {
   display: flex;
   justify-content: space-between;
@@ -101,14 +137,18 @@ button:hover {
   background-color: #125aa0;
 }
 
-/* Tack-sida */
+/* ===========================
+   Tack-sida
+=========================== */
 .thank-you p {
   text-align: center;
   font-size: 1rem;
   color: #333;
 }
 
-/*  Sammanfattning */
+/* ===========================
+   Sammanfattning (StepFourSummary)
+=========================== */
 .summary ul {
   list-style: none;
   padding: 0;
@@ -119,7 +159,9 @@ button:hover {
   border-bottom: 1px solid #eee;
 }
 
-/*  animation  */
+/* ===========================
+   Animationer
+=========================== */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -131,7 +173,9 @@ button:hover {
   }
 }
 
-/* Progress Bar */
+/* ===========================
+   Progressbar
+=========================== */
 .progress-container {
   margin-bottom: 1.5rem;
   position: relative;
@@ -153,8 +197,49 @@ button:hover {
   color: #333;
 }
 
-/* Responsivitet  */
+/* ===========================
+   Logga
+=========================== */
 
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  background-color: #e3f2fd;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(25, 118, 210, 0.2);
+}
+
+.form-header svg {
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.15));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.3));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.15));
+  }
+}
+
+.form-header svg {
+  animation: pulse 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* ===========================
+   Responsivitet
+=========================== */
 @media (max-width: 1400px) {
   .buttons {
     flex-direction: column;
@@ -165,8 +250,11 @@ button:hover {
   }
 
   .loan-form {
-    padding-bottom: 65rem;
-    width: 30rem;
+    width: 90vw;
+    max-width: 30rem;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    margin-bottom: 45rem;
   }
 }
 
@@ -180,8 +268,10 @@ button:hover {
   }
 
   .loan-form {
-    padding-bottom: 55rem;
-    width: 30rem;
+    width: 90vw;
+    max-width: 30rem;
+    box-sizing: border-box;
+    margin-top: 3rem;
   }
 }
 
@@ -195,8 +285,11 @@ button:hover {
   }
 
   .loan-form {
-    padding-bottom: 45rem;
-    width: 30rem;
+    width: 90vw;
+    max-width: 30rem;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    margin-top: 3rem;
   }
 }
 
@@ -210,7 +303,10 @@ button:hover {
   }
 
   .loan-form {
-    width: 15rem;
+    width: 90vw;
+    max-width: 30rem;
+    padding: 1.5rem;
+    box-sizing: border-box;
   }
 }
 
@@ -222,6 +318,13 @@ button:hover {
   button {
     width: 100%;
   }
+
+  .loan-form {
+    width: 90vw;
+    max-width: 30rem;
+    padding: 1.5rem;
+    box-sizing: border-box;
+  }
 }
 
 @media (max-width: 300px) {
@@ -231,5 +334,12 @@ button:hover {
 
   button {
     width: 100%;
+  }
+
+  .loan-form {
+    width: 90vw;
+    max-width: 30rem;
+    padding: 1.5rem;
+    box-sizing: border-box;
   }
 }

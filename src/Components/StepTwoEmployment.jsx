@@ -1,17 +1,42 @@
 import React from "react";
 
-export default function StepTwoEmployment({ formData, handleChange }) {
+export default function StepTwoEmployment({ formData, handleChange, errors }) {
   return (
     <>
-      <label>
-        Är du anställd?
-        <input
-          type="checkbox"
-          name="employed"
-          checked={formData.employed}
-          onChange={handleChange}
-        />
-      </label>
+      <fieldset>
+        <legend>Är du anställd?</legend>
+        <div className="radio-group">
+          <label className="radio-option">
+            <input
+              type="radio"
+              name="employed"
+              value="true"
+              checked={formData.employed === true}
+              onChange={() =>
+                handleChange({
+                  target: { name: "employed", value: true, type: "radio" },
+                })
+              }
+            />
+            Ja
+          </label>
+
+          <label className="radio-option">
+            <input
+              type="radio"
+              name="employed"
+              value="false"
+              checked={formData.employed === false}
+              onChange={() =>
+                handleChange({
+                  target: { name: "employed", value: false, type: "radio" },
+                })
+              }
+            />
+            Nej
+          </label>
+        </div>
+      </fieldset>
 
       <label>
         Din lön:
@@ -22,6 +47,7 @@ export default function StepTwoEmployment({ formData, handleChange }) {
           <option value="1000-2000">$1000 - $2000</option>
           <option value=">2000">Över $2000</option>
         </select>
+        {errors.salary && <span className="error">{errors.salary}</span>}
       </label>
 
       <label>
@@ -32,6 +58,9 @@ export default function StepTwoEmployment({ formData, handleChange }) {
           value={formData.loanAmount}
           onChange={handleChange}
         />
+        {errors.loanAmount && (
+          <span className="error">{errors.loanAmount}</span>
+        )}
       </label>
     </>
   );

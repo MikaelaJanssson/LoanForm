@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../Styles/LoanForm.css";
 
+import Logo from "./Logo";
+
 import StepOnePersonalInfo from "./StepOnePersonalInfo";
 import StepTwoEmployment from "./StepTwoEmployment";
 import StepThreePurpose from "./StepThreePurpose";
@@ -37,6 +39,18 @@ export default function LoanForm() {
       if (!formData.phone) newErrors.phone = "Skriv ditt telefonnummer";
       if (!formData.age) newErrors.age = "Skriv din ålder";
     }
+    if (step === 2) {
+      if (formData.employed !== true && formData.employed !== false)
+        newErrors.employed = "Välj Ja eller Nej";
+      if (!formData.salary) newErrors.salary = "Välj din lön";
+      if (!formData.loanAmount) newErrors.loanAmount = "Ange lånebelopp";
+    }
+    if (step === 3) {
+      if (!formData.purpose) newErrors.purpose = "Ange syfte med lånet";
+      if (!formData.repaymentYears)
+        newErrors.repaymentYears = "Ange återbetalningstid";
+      if (!formData.comments) newErrors.comments = "Lämna gärna en kommentar";
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   }
@@ -53,8 +67,10 @@ export default function LoanForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setIsSubmitted(true);
-    console.log("Ansökan skickad:", formData);
+    if (validateStep()) {
+      setIsSubmitted(true);
+      console.log("Ansökan skickad:", formData);
+    }
   }
 
   if (isSubmitted) {
@@ -68,7 +84,10 @@ export default function LoanForm() {
 
   return (
     <form className="loan-form" onSubmit={handleSubmit}>
-      <h2>Låneansökan</h2>
+      <div className="form-header">
+        <Logo />
+        <h2>Låneansökan</h2>
+      </div>
       <p>Steg {step} av 4</p>
 
       {step === 1 && (
@@ -79,10 +98,18 @@ export default function LoanForm() {
         />
       )}
       {step === 2 && (
-        <StepTwoEmployment formData={formData} handleChange={handleChange} />
+        <StepTwoEmployment
+          formData={formData}
+          handleChange={handleChange}
+          errors={errors}
+        />
       )}
       {step === 3 && (
-        <StepThreePurpose formData={formData} handleChange={handleChange} />
+        <StepThreePurpose
+          formData={formData}
+          handleChange={handleChange}
+          errors={errors}
+        />
       )}
       {step === 4 && <StepFourSummary formData={formData} />}
 

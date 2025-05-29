@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function StepThreePurpose({ formData, handleChange }) {
+export default function StepThreePurpose({ formData, handleChange, errors }) {
   return (
     <>
       <label>
@@ -10,6 +10,7 @@ export default function StepThreePurpose({ formData, handleChange }) {
           value={formData.purpose}
           onChange={handleChange}
         />
+        {errors.purpose && <span className="error">{errors.purpose}</span>}
       </label>
 
       <label>
@@ -20,6 +21,9 @@ export default function StepThreePurpose({ formData, handleChange }) {
           value={formData.repaymentYears}
           onChange={handleChange}
         />
+        {errors.repaymentYears && (
+          <span className="error">{errors.repaymentYears}</span>
+        )}
       </label>
 
       <label>
@@ -29,6 +33,7 @@ export default function StepThreePurpose({ formData, handleChange }) {
           value={formData.comments}
           onChange={handleChange}
         />
+        {errors.comments && <span className="error">{errors.comments}</span>}
       </label>
     </>
   );
