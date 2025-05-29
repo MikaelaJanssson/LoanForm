@@ -32,6 +32,10 @@ body {
   color: #0d47a1;
 }
 
+.loan-form-title {
+  text-align: center;
+}
+
 /* ===========================
    Inputs 
 =========================== */
