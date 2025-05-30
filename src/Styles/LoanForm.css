@@ -242,6 +242,65 @@ button:hover {
 }
 
 /* ===========================
+   DarkMode
+=========================== */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(
+      135deg,
+      #1e1e1e,
+      #2c3e50
+    ); /* Mörkare bakgrund */
+    color: #f1f1f1;
+  }
+
+  .loan-form,
+  .thank-you {
+    background: #2a2a2a;
+    color: #f1f1f1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  }
+
+  .loan-form h2,
+  .thank-you h2 {
+    color: #bbdefb;
+  }
+
+  label {
+    color: #ddd;
+  }
+
+  input,
+  select,
+  textarea {
+    background-color: #444;
+    color: #f1f1f1;
+    border: 1px solid #666;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #64b5f6;
+  }
+
+  .thank-you p,
+  .progress-text {
+    color: #ccc;
+  }
+
+  .form-header {
+    background-color: #1f2d3a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  .progress-bar {
+    background-color: #64b5f6;
+  }
+}
+
+/* ===========================
    Responsivitet
 =========================== */
 @media (max-width: 1400px) {
