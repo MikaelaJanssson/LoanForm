@@ -1,6 +1,12 @@
-Låneansökningsformulär
+# Loan App 💸
 
-Beskrivning: 
-Detta är ett skolprojekt med fokus på formulär i kursen React. 
+En enkel låneansökningsapplikation byggd med **React**.
 
-Kika in hemsidan via länken: loan-app-snowy.vercel.app
+## 🚀 Live Demo
+[Prova Loan App här](https://loan-app-snowy.vercel.app/)
+
+## 📦 Installation
+
+1. Klona repot:  
+   ```bash
+   git clone https://github.com/ditt-användarnamn/loan-app.git
